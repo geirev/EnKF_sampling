@@ -1,7 +1,6 @@
 # EnKF_sampling
 Sampling of 1D and 2D pseudo random  curves and fields.
 
-
 This code is used to test the sampling of pseudo random fields
 on different architectures.  It currently supports different IBM,
 SGI, LINUX DEC, and CRAY fft libraries.
@@ -22,20 +21,14 @@ Installation:
 
 To test: 
 
-   git clone EnKF_analysis
+    git clone EnKF_analysis
 
-   cd EnKF_analysis/lib
+    cd EnKF_analysis/lib
 
-   change build in EnKF_analysis/lib/makefile to point to EnKF_sampling/build
+    change build in EnKF_analysis/lib/makefile to point to EnKF_sampling/build
 
-   make
+    make
    
-   cd test
+    cd test; make
 
-   make
-
-   cd build
-   
-   testsampling
-
-
+    cd build; testsampling
