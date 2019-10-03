@@ -1,6 +1,6 @@
-BUILD = ../build
 BUILD = ../../EnKF_advection/build
 BUILD = ../../EnKF_analysis/build
+BUILD = ../build
 VPATH = .:RCS:$(BUILD)
 
 .SUFFIXES:
