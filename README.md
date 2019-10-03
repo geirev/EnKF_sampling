@@ -17,9 +17,9 @@ Before compiling define your achitecture in the file MODEL.CPP
 
 Installation:
 
-   cd lib; make
+    cd EnKF_sampling/lib; make
 
-To test: 
+To test (depends on EnKF_analysis routines): 
 
     git clone EnKF_analysis
 
@@ -29,6 +29,6 @@ To test:
 
     make
    
-    cd test; make
+    cd EnKF_sampling/test; make
 
     cd build; testsampling
