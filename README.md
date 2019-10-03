@@ -17,10 +17,28 @@ available for many unix systems from http://www.fftw.org/
 
 Before compiling define your achitecture in the file MODEL.CPP
 
-You are probably using the mkdepend.pl script found elsewhere on 
-this site. 
+Installation:
 
-This code is developed by Geir.Evensen@hydro.com and/or Geir.Evensen@nersc.no
-The code can be freely used but improvements, upgrades and bugfixes
-should be reported,  and as everything free, it comes with no guarantee.  
+   cd lib
+
+   make
+
+To test: 
+
+   git clone EnKF_analysis
+
+   cd EnKF_analysis/lib
+
+   change build in EnKF_analysis/lib/makefile to point to EnKF_sampling/build
+
+   make
+   
+   cd test
+
+   make
+
+   cd build
+   
+   testsampling
+
 
