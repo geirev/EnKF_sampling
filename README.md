@@ -16,6 +16,7 @@ available for many unix systems from http://www.fftw.org/
 Before compiling define your achitecture in the file MODEL.CPP
 
 Installation:
+    install the scripts in EnKF_sampling/bin in your path
 
     cd EnKF_sampling/lib; make
 
