@@ -1,0 +1,6 @@
+MODULES = \
+	m_tecfld.F90
+
+F90FILES = \
+	sample.F90
+
