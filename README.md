@@ -1,5 +1,4 @@
 # EnKF_sampling
-
 Sampling of 1D and 2D pseudo random  curves and fields.
 
 
@@ -19,9 +18,7 @@ Before compiling define your achitecture in the file MODEL.CPP
 
 Installation:
 
-   cd lib
-
-   make
+   cd lib; make
 
 To test: 
 
