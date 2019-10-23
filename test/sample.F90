@@ -54,7 +54,7 @@ program sample
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Sample all random fields and interpolate to model grid
    call pseudo1D(B,nx,nrens,cor1,dx,n1)
-   call fixsample1D(A,nx,nrens)
+   call fixsample1D(B,nx,nrens)
 
 
    open(10,file='tec_ens1D.dat')
