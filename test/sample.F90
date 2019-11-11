@@ -8,6 +8,7 @@ program sample
    use m_fixsample1D
    use m_tecfld
    use m_set_random_seed2
+   use m_random
    implicit none
 
    integer, parameter :: nrens=100        ! ensemble size 
@@ -20,8 +21,9 @@ program sample
 
    real :: xlength=35.0                   ! length of time series is 36 months
    real :: cor1=15.0                      ! decorrelation length in months
-   character(len=100) :: obshistfile='obshistnew.txt' 
-   character(len=100) :: schedulefile='history.sch' 
+   character(len=100) :: obshistfile='/home/geve/Dropbox/Statoil/erterr/observations/obshistnew.txt' 
+   character(len=100) :: schedulefile='/home/geve/Dropbox/Statoil/eclipse/include/history.sch' 
+   character(len=100) :: outpath='/home/geve/Dropbox/Statoil/erterr/' 
    integer n1                             ! x-dimension of grid
    integer i,j,k,l,m,ic
    integer idat
@@ -50,13 +52,15 @@ program sample
    real rel_err
    real min_err
 
-   integer status
+   integer istat
+   integer noise
    character(len=200) string1  
    character(len=200) string2  
    string1="grep -A1 -e 'DATES' -e 'OPEN RESV' "//trim(schedulefile)// " > rates.txt"
    string2="sed -i -e '/^\/$/d' -e '/--/d' -e 's?/??' -e 's/ OPEN RESV //' -e 's/ /#/g'  rates.txt"
    
-   
+   write (*,'(a)',advance='no')'Select type of noise (0-null, 1-pseudo, 2-white, 3-constant): '
+   read(*,*)noise
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Set a variable random seed
@@ -71,24 +75,48 @@ program sample
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Sample all random time series
-   call pseudo1D(B,nx,nrwells*nrdata*nrens,cor1,dx,n1)
-   call fixsample1D(B,nx,nrwells*nrdata*nrens)
+   select case (noise)
+   case (0)
+      B=0.0
+      print *,'Simulating noise=0.0'
+   case (1)
+      call pseudo1D(B,nx,nrwells*nrdata*nrens,cor1,dx,n1)
+      call fixsample1D(B,nx*nrwells*nrdata,nrens)
+      print *,'Simulating pseudo random red noise'
+
+   case (2)
+      print *,'Simulating white random noise'
+      call random(B,nx*nrwells*nrdata*nrens)
+
+   case (3)
+      print *,'Simulating random bias noise'
+      B=-1.0
+      call random(B(1,1:nrwells*nrdata*nrens),nrwells*nrdata*nrens)
+      do i=1,nrwells*nrdata*nrens
+         B(2:nx,i)=B(1,i)
+      enddo
+   end select
+
+! test
+   do i=1,nx
+      write(*,'(i4,12f10.2)')i,B(i,1:12)
+   enddo
 
 ! testplot
    A=reshape(B,(/ nx*nrwells*nrdata, nrens /) )
-   open(10,file='tec_ens1D.dat')
-   do i=1,nx*nrwells*nrdata
-      write(10,'(i3,f12.2,100f12.2)')i,(i-1)*dx,A(i,1:min(nrens,100))
-   enddo
+   open(10,file='tec_ensA.dat')
+      do i=1,nx*nrwells*nrdata
+         write(10,'(i3,f12.2,100f12.2)')i,(i-1)*dx,A(i,1:min(nrens,10))
+      enddo
    close(10)
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Extract rates from schedule file amd dump them in rates.txt
    print '(a,a)','string1=',trim(string1)
-   status = system( string1 )
+   istat = system( string1 )
    print '(a,a)','string2=',trim(string2)
-   status = system( string2 )
-   status = system( 'head rates.txt' )
+   istat = system( string2 )
+   istat = system( 'head rates.txt' )
 
 ! initializing rates to 0 and setting well names
    do i=1,nx
@@ -148,8 +176,8 @@ program sample
 
    open(10,file=trim(obshistfile),err=100)
    do m=1,100000
-      read(10,'(tr21,a3,tr1,a4,tr11,f3.1,tr36,f6.1)',end=100) var,well,rel_err,min_err
-      write(*,'(a,a3,a,a4,a,f3.1,a,f6.1)') ' var=',var,' well=',well,' rel_err=',rel_err,' min_err=',min_err
+      read(10,'(tr21,a3,tr1,a4,tr11,f4.2,tr36,f6.1)',end=100) var,well,rel_err,min_err
+      write(*,'(a,a3,a,a4,a,f5.3,a,f8.3)') ' var=',var,' well=',well,' rel_err=',rel_err,' min_err=',min_err
       select case (var)
       case('OPR')
          l=1
@@ -172,8 +200,18 @@ program sample
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Saving perturbations for schedule parcing
+   select case (noise)
+   case (0)
+      open(10,file=trim(outpath)//'EPERT0_0')
+   case (1)
+      open(10,file=trim(outpath)//'EPERT_0')
+   case (2)
+      open(10,file=trim(outpath)//'EPERTW_0')
+   case (3)
+      open(10,file=trim(outpath)//'EPERTB_0')
+   end select
    C=reshape(B,(/ nx, nrdata, nrwells, nrens /) )
-   open(10,file='Epert_0.dat')
+      write(10,'(4(a,i6))')'nrens=',nrens,' nrwells=',nrwells,' nrdata=',nrdata,' nx=',nx
       do j=1,nrens
          do i=1,nrwells
             do l=1,nrdata
@@ -186,23 +224,25 @@ program sample
       enddo
    close(10)
 
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Saving perturbations for analysis routine
-   open(10,file='E.dat')
-      do j=1,nrens
-      do i=1,nx*nrwells*nrdata
-         write(10,'(i6,i4,e15.6)')i,j,A(i,j)
-      enddo
-      enddo
-   close(10)
+!   open(10,file='E.dat')
+!      do j=1,nrens
+!      do i=1,nx*nrwells*nrdata
+!         write(10,'(i6,i4,e15.6)')i,j,A(i,j)
+!      enddo
+!      enddo
+!   close(10)
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! testplot
+! testplot
    A=reshape(C,(/ nx*nrwells*nrdata, nrens /) )
-   open(10,file='tec_ens1D_B.dat')
-   do i=1,nx*nrwells*nrdata
-      write(10,'(i3,f12.2,100f12.2)')i,(i-1)*dx,A(i,1:min(nrens,100))
-   enddo
+   open(10,file='tec_ensB.dat')
+      do i=1,nx*nrwells*nrdata
+         write(10,'(i3,f12.2,100f12.2)')i,(i-1)*dx,A(i,1:min(nrens,10))
+      enddo
    close(10)
 
 
