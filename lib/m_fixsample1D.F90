@@ -38,6 +38,7 @@ subroutine fixsample1D(E,n,m)
    do iens=1,m
       do i=1,n
          E(i,iens)=variance(i)*E(i,iens)
+         if (abs(E(i,iens)) < 1.0E-20) E(i,iens)=0.0
       enddo
    enddo
 

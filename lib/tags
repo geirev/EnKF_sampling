@@ -1,22 +1,46 @@
-X5sqrt	mod_anafunc.F90	/^subroutine X5sqrt(X2,nrobs,nrens,nrmin,X5,lrandrot/
-analysis	analysis.F90	/^subroutine analysis(A, R, E, S, D, innov, ndim, nr/
-analysis2_EnOI	analysis2_EnOI.F90	/^subroutine analysis2_EnOI(A,psi,D, R, S, ndim, nre/
-dumpX3	mod_anafunc.F90	/^subroutine dumpX3(X3,S,nrobs,nrens)$/
-dumpX5	mod_anafunc.F90	/^subroutine dumpX5(X5,nrens)$/
-eigC	mod_anafunc.F90	/^subroutine eigC(R,nrobs,Z,eig)$/
-eigsign	mod_anafunc.F90	/^subroutine eigsign(eig,nrobs,truncation)$/
-ensmean	m_ensmean.F90	/^subroutine ensmean(A,ave,nx,nrens)$/
-ensvar	m_ensvar.F90	/^subroutine ensvar(A,ave,var,nx,nrens)$/
-genX2	mod_anafunc.F90	/^subroutine genX2(nrens,nrobs,nrmin,S,W,eig,X2)$/
-genX3	mod_anafunc.F90	/^subroutine genX3(nrens,nrobs,nrmin,eig,W,D,X3)$/
-inflateA	mod_anafunc.F90	/^subroutine inflateA(ndim,nrens,A,inflation)$/
-inflationfactor	mod_anafunc.F90	/^subroutine inflationfactor(X5,nrens,inffac)$/
-lowrankCee	mod_anafunc.F90	/^subroutine lowrankCee(B,nrmin,nrobs,nrens,R,U0,sig/
-lowrankCinv	mod_anafunc.F90	/^subroutine lowrankCinv(S,R,nrobs,nrens,nrmin,W,eig/
-lowrankE	mod_anafunc.F90	/^subroutine lowrankE(S,E,nrobs,nrens,nrmin,W,eig,tr/
-meanX5	mod_anafunc.F90	/^subroutine meanX5(nrens,nrobs,nrmin,S,W,eig,innov,/
-mean_preserving_rotation	m_mean_preserving_rotation.F90	/^subroutine mean_preserving_rotation(Up,nrens)$/
-multa	m_multa.F90	/^subroutine multa(A, X, ndim, nrens, iblkmax)$/
-random	m_random.F90	/^subroutine random(work1,n)$/
-randrot	m_randrot.F90	/^subroutine randrot(Q,nrens)$/
-svdS	mod_anafunc.F90	/^subroutine svdS(S,nrobs,nrens,nrmin,U0,sig0,trunca/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+FFTW_BACKWARD	mod_fftw3.F90	/^   integer, parameter :: FFTW_BACKWARD=/;"	v	module:mod_fftw3
+FFTW_DHT	mod_fftw3.F90	/^   integer, parameter :: FFTW_DHT=/;"	v	module:mod_fftw3
+FFTW_FORWARD	mod_fftw3.F90	/^   integer, parameter :: FFTW_FORWARD=/;"	v	module:mod_fftw3
+FFTW_HC2R	mod_fftw3.F90	/^   integer, parameter :: FFTW_HC2R=/;"	v	module:mod_fftw3
+FFTW_R2HC	mod_fftw3.F90	/^   integer, parameter :: FFTW_R2HC=/;"	v	module:mod_fftw3
+FFTW_REDFT00	mod_fftw3.F90	/^   integer, parameter :: FFTW_REDFT00=/;"	v	module:mod_fftw3
+FFTW_REDFT01	mod_fftw3.F90	/^   integer, parameter :: FFTW_REDFT01=/;"	v	module:mod_fftw3
+FFTW_REDFT10	mod_fftw3.F90	/^   integer, parameter :: FFTW_REDFT10=/;"	v	module:mod_fftw3
+FFTW_REDFT11	mod_fftw3.F90	/^   integer, parameter :: FFTW_REDFT11=/;"	v	module:mod_fftw3
+FFTW_RODFT00	mod_fftw3.F90	/^   integer, parameter :: FFTW_RODFT00=/;"	v	module:mod_fftw3
+FFTW_RODFT01	mod_fftw3.F90	/^   integer, parameter :: FFTW_RODFT01=/;"	v	module:mod_fftw3
+FFTW_RODFT10	mod_fftw3.F90	/^   integer, parameter :: FFTW_RODFT10=/;"	v	module:mod_fftw3
+FFTW_RODFT11	mod_fftw3.F90	/^   integer, parameter :: FFTW_RODFT11=/;"	v	module:mod_fftw3
+fixsample1D	m_fixsample1D.F90	/^subroutine fixsample1D(/;"	s	module:m_fixsample1D
+fixsample2D	m_fixsample2D.F90	/^subroutine fixsample2D(/;"	s	module:m_fixsample2D
+m_fixsample1D	m_fixsample1D.F90	/^module m_fixsample1D$/;"	m
+m_fixsample2D	m_fixsample2D.F90	/^module m_fixsample2D$/;"	m
+m_newton1D	m_newton1D.F90	/^module m_newton1D$/;"	m
+m_newton2D	m_newton2D.F90	/^module m_newton2D$/;"	m
+m_newtonfunc1D	m_newtonfunc1D.F90	/^module m_newtonfunc1D$/;"	m
+m_newtonfunc2D	m_newtonfunc2D.F90	/^module m_newtonfunc2D$/;"	m
+m_pseudo1D	m_pseudo1D.F90	/^module m_pseudo1D$/;"	m
+m_pseudo2D	m_pseudo2D.F90	/^module m_pseudo2D$/;"	m
+m_random	m_random.F90	/^module m_random$/;"	m
+m_randrot	m_randrot.F90	/^module m_randrot$/;"	m
+m_sample1D	m_sample1D.F90	/^module m_sample1D$/;"	m
+m_sample2D	m_sample2D.F90	/^module m_sample2D$/;"	m
+m_set_random_seed2	m_set_random_seed2.F90	/^module m_set_random_seed2$/;"	m
+mod_fftw3	mod_fftw3.F90	/^module mod_fftw3$/;"	m
+newton1D	m_newton1D.F90	/^subroutine newton1D(/;"	s	module:m_newton1D
+newton2D	m_newton2D.F90	/^subroutine newton2D(/;"	s	module:m_newton2D
+newtonfunc1D	m_newtonfunc1D.F90	/^subroutine newtonfunc1D(/;"	s	module:m_newtonfunc1D
+newtonfunc2D	m_newtonfunc2D.F90	/^subroutine newtonfunc2D(/;"	s	module:m_newtonfunc2D
+pseudo1D	m_pseudo1D.F90	/^subroutine pseudo1D(/;"	s	module:m_pseudo1D
+pseudo2D	m_pseudo2D.F90	/^subroutine pseudo2D(/;"	s	module:m_pseudo2D
+random	m_random.F90	/^subroutine random(/;"	s	module:m_random
+randrot	m_randrot.F90	/^subroutine randrot(/;"	s	module:m_randrot
+sample1D	m_sample1D.F90	/^subroutine sample1D(/;"	s	module:m_sample1D
+sample2D	m_sample2D.F90	/^subroutine sample2D(/;"	s	module:m_sample2D
+set_random_seed2	m_set_random_seed2.F90	/^subroutine set_random_seed2$/;"	s	module:m_set_random_seed2
