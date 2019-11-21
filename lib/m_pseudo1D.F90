@@ -78,7 +78,7 @@ subroutine pseudo1D(A,nx,nrfields,rx,dx,n1)
    do l=-n1/2+1,n1/2
       summ=summ+exp(-2.0*(kappa2*real(l*l))/r12)
    enddo
-   summ=summ-1.0
+   summ=summ -1.0   ! GE?
    c=sqrt(1.0/(deltak*summ))
 
    if (diag) then
@@ -98,7 +98,7 @@ subroutine pseudo1D(A,nx,nrfields,rx,dx,n1)
          fampl(l,1)=exp(-tt)*cos(phi(l))*sqrt(deltak)*c
          fampl(l,2)=exp(-tt)*sin(phi(l))*sqrt(deltak)*c
       enddo
-      fampl(0,1)=0.0
+      fampl(0,1)=0.0  ! GE?
       fampl(0,2)=0.0
 
       arrayC(:)=cmplx(fampl(:,1),fampl(:,2))

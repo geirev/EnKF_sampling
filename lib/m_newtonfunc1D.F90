@@ -20,7 +20,7 @@ subroutine newtonfunc1D(f,f1,r1,n1,dx,rx)
    f=0.0; f1=0.0
 
    do l=-n1/2+1,n1/2
-      if (l == 0) cycle
+      if (l == 0) cycle   ! GE?
 
       e=exp( -2.0*( kappa2*real(l*l)/r1**2 ) )
 
