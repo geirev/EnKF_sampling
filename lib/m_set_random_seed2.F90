@@ -4,32 +4,35 @@ subroutine set_random_seed2
 ! Sets a random seed based on the system and wall clock time
    implicit none 
 
-!   integer , dimension(8)::val
-!   integer cnt
-!   integer sze
-!   integer, allocatable, dimension(:):: pt
-
+   logical ex
+   real x
    INTEGER :: i, n, clock
    INTEGER, DIMENSION(:), ALLOCATABLE :: seed
 
    CALL RANDOM_SEED(size = n)
    ALLOCATE(seed(n))
 
-   CALL SYSTEM_CLOCK(COUNT=clock)
+   inquire(file='seed.dat',exist=ex)
+   if (ex) then
+      open(10,file='seed.dat')
+         read(10,*)seed
+      close(10)
+      CALL RANDOM_SEED(PUT = seed)
+      call random_number(x)
+      print *,'random seed set using stored seed from seed.dat:',x
 
-   seed = clock + 37 * (/ (i - 1, i = 1, n) /)
-   CALL RANDOM_SEED(PUT = seed)
+   else
+      CALL SYSTEM_CLOCK(COUNT=clock)
+      seed = clock + 37 * (/ (i - 1, i = 1, n) /)
+      CALL RANDOM_SEED(PUT = seed)
+      call random_number(x)
+      print *,'new random seed set using system clock and stored to seed.dat:',x
+      open(10,file='seed.dat')
+         write(10,*)seed
+      close(10)
+   endif
 
    DEALLOCATE(seed)
 
-
-!   call DATE_AND_TIME(values=val)
-!   call SYSTEM_CLOCK(count=cnt)
-!   call RANDOM_SEED(size=sze)
-!   allocate(pt(sze))
-!   pt(1) = val(8)*val(3)
-!   pt(2) = cnt
-!   call RANDOM_SEED(put=pt)
-!   deallocate(pt)
 end subroutine set_random_seed2
 end module m_set_random_seed2
