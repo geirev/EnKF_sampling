@@ -24,7 +24,7 @@ subroutine pseudo1D(A,nx,nrfields,rx,dx,n1)
 
 
    real tt
-   logical, save :: diag=.true.
+   logical, save :: diag=.false.
    real, parameter :: pi=3.141592653589
 
    integer(kind=8) plan

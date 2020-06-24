@@ -26,10 +26,7 @@ subroutine fixsample1D(E,n,m)
       variance(:) = variance(:) + E(:,iens)**2.
    enddo
 
-   print *,'variance '
    var=sum(variance)/real(m*n)
-   print *,'1D var=',var
-   print *
 
    do i=1,n
       variance(i)=1.0/sqrt( variance(i)/float(m) )
