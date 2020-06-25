@@ -51,6 +51,7 @@ subroutine pseudo1D(A,nx,nrfields,rx,dx,n1)
    do l=-n1/2+1,n1/2
       summ=summ+exp(-2.0*(kappa2*real(l*l))/r1**2)
    enddo
+   summ=summ-1.0
    c=sqrt(1.0/(deltak*summ))
 
    if (diag) then
@@ -65,12 +66,14 @@ subroutine pseudo1D(A,nx,nrfields,rx,dx,n1)
       call random_number(phi)
       phi=pi2*phi
 
+
       do l=0,n1/2 
          tt=kappa2*real(l*l)/r1**2
          fampl(l,1)=exp(-tt)*cos(phi(l))*sqrt(deltak)*c
          fampl(l,2)=exp(-tt)*sin(phi(l))*sqrt(deltak)*c
       enddo
-      fampl(0,2)=0.0
+      fampl(0,1)=0.0 ! This one only adds a constant mean value to each field
+      fampl(0,2)=0.0 ! This is always zero
 
       arrayC(:)=cmplx(fampl(:,1),fampl(:,2))
       call dfftw_execute(plan)
