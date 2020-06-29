@@ -1,0 +1,6 @@
+MODULES = \
+	mod_fftw3.F90
+
+F90FILES = \
+	testp.F90
+

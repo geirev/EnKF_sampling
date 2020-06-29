@@ -14,7 +14,7 @@ program sample
    integer, parameter :: nrens=5000       ! ensemble size 
    integer, parameter :: nx=100           ! gridsize in x direction
    integer, parameter :: ny=100           ! gridsize in y direction
-   real :: cor1=300.0                     ! decorrelation length in princepal direction
+   real :: cor1=1300.0                     ! decorrelation length in princepal direction
    real :: cor2=600.0                     ! decorrelation length normal to princepal direction
    real :: dir=30.0                       ! princepal direction
 
@@ -45,19 +45,21 @@ program sample
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Sample 2D pseudo random fields
-   n1=nint(real(nx)*1.2)
+   n1=nint(real(nx)*2.0)
    n2=nint(real(ny)*1.2)
 
-   call pseudo2D(A,nx,ny,nrens,cor1,cor2,dx,dy,n1,n2,dir,.true.)
-   call fixsample2D(A,nx,ny,nrens)
+!   call pseudo2D(A,nx,ny,nrens,cor1,cor2,dx,dy,n1,n2,dir,.true.)
+!   call fixsample2D(A,nx,ny,nrens)
 
-   R=matmul(A(:,ny/2,:),transpose(A(:,ny/2,:)))/real(nrens-1)  
-   open(10,file='tec_cov2D.dat')
-   do i=1,nx
-      write(10,'(i3,2000f12.2)')i,(i-1)*dx,R(i,1:nx)
-   enddo
-   close(10)
-
+!   R=matmul(A(:,ny/2,:),transpose(A(:,ny/2,:)))/real(nrens-1)  
+!   open(10,file='tec_cov2D.dat')
+!   do i=1,nx
+!      write(10,'(i3,2000f12.2)')i,(i-1)*dx,R(i,1:nx)
+!   enddo
+!   close(10)
+!
+   print *,dir
+   A=0.0
    call tecfld('ens2D',nx,ny,min(10,nrens),A)
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

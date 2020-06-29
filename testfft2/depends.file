@@ -1,0 +1,5 @@
+mod_fftw3.o:      makefile
+mod_fftw3.o:      MODEL.CPP
+testp.o:      makefile
+testp.o:      MODEL.CPP
+testp.o:      mod_fftw3.o

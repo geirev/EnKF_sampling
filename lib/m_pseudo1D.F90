@@ -24,7 +24,7 @@ subroutine pseudo1D(A,nx,nrfields,rx,dx,n1)
 
 
    real tt
-   logical, save :: diag=.false.
+   logical, save :: diag=.true.
    real, parameter :: pi=3.141592653589
 
    integer(kind=8) plan
@@ -44,7 +44,8 @@ subroutine pseudo1D(A,nx,nrfields,rx,dx,n1)
    if (.not.cnv) then
       stop 'pseudo1D: newton did not converge.  Recompile with diag set to true in pseudo1D.'
    endif
-   if (diag) print *, 'Newton gave r1= ',r1
+   if (diag) print *, 'Newton gave r1= ',r1,0.5*pi*rx,1.0/(0.5*pi*rx)
+   r1=1.0/(0.5*pi*rx)
 
 
    summ=0.0

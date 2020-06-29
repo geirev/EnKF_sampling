@@ -1,6 +1,3 @@
-BUILD = ../../EnKF_advection/build
-BUILD = ../../EnKF_analysis/build
-BUILD = ../../EnKF_seir/build
 BUILD = ../build
 VPATH = .:RCS:$(BUILD)
 
@@ -16,8 +13,8 @@ CF77 = gfortran
 OPT_FFLAGS = -c -fdefault-real-8 -O3
 
 PAR = 
-DEBUG_FFLAGS = -c -g -fdefault-real-8 -C -u -Xlist -O2 -std=f2003 -fimplicit-none -frange-check -fmax-errors=10 -pedantic -pedantic-errors -Waliasing -Wampersand -Wcharacter-truncation -Wline-truncation -Wsurprising -Wno-tabs -Wunderflow -ffpe-trap=invalid,zero,overflow -Wunused -Werror -O3 
 DEBUG_FFLAGS = -c -g -fdefault-real-8 -C -u -Xlist -O2 -std=gnu -fimplicit-none -frange-check -fmax-errors=10 -pedantic -pedantic-errors -Waliasing -Wampersand -Wcharacter-truncation -Wline-truncation -Wsurprising -Wno-tabs -Wunderflow -ffpe-trap=invalid,zero,overflow -Wunused -Werror -O3 
+DEBUG_FFLAGS = -c -g -fdefault-real-8 -lm -Wall
 
 FFLAGS =  $(OPT_FFLAGS)
 FFLAGS =  $(DEBUG_FFLAGS)
@@ -43,7 +40,7 @@ CPPFLAGS = -traditional -P $(CPPARCH) $(CPPMODEL)
 #LIBDIR = -L /h/geve/lib/linux  -L /usr/lib/gcc/x86_64-redhat-linux/3.4.3/32 -L/h/a152128/lib/linux 
 
 LIBS =  -lg2c  -lblas -llapack -lfftw3 -lecl -lhash -lpthread
-LIBS =  -lblas -llapack /usr/lib/x86_64-linux-gnu/libfftw3.so.3
+LIBS =  -llapack ./libenkfanalysis.a ./libsampling.a -lblas /usr/lib/x86_64-linux-gnu/libfftw3.so.3  
 
 
 BINDIR = $(HOME)/bin
@@ -83,12 +80,12 @@ OMOD = $(MODULES:.F90=.o) $(MODULES77:.F=.o)
 
 
 
-all: $(TARGET)
+all: $(TARGET) install libenkfanalysis.a
 
 
 $(TARGET): $(INC2) $(OMOD) $(OBJECTS) 
 	@mkdir -p $(BUILD)
-	cd ./$(BUILD) ;  ar rvs $(TARGET) $(OMOD) $(OBJECTS)
+	cd ./$(BUILD) ; $(LD) $(LINKFLAGS) -o $(TARGET) $(OMOD) $(OBJECTS) $(LIBDIR) $(LIBS) 
 
 install:
 	cp $(BUILD)/$(TARGET) $(BINDIR)

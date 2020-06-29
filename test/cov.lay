@@ -2698,8 +2698,8 @@ $!XYLineAxis
 $!XYLineAxis 
   YDetail 1
     {
-    RangeMin = -1.0002000331878662109
-    RangeMax = 1.0004000731945037472
+    RangeMin = -0.091289997100830078125
+    RangeMax = 1.000309182190895152
     GRSpacing = 0.2
     Gridlines
       {
