@@ -22,6 +22,7 @@ program sample
    integer n2                             ! y-dimension of grid
 
    integer i
+   logical lmean                          ! true to add random mean to realizations
 
 
    real dx,dy
@@ -60,7 +61,8 @@ dir=0.0
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Sample all random fields and interpolate to model grid
    print '(a)','Calling pseudo1D'
-   call pseudo1D(B,nx,nrens,cor1,dx,n1)
+   lmean=.false.
+   call pseudo1D(B,nx,nrens,cor1,dx,n1,lmean)
 
    print '(a)','Calling fixsample1D'
    call fixsample1D(B,nx,nrens)
