@@ -65,7 +65,7 @@ $!FrameName  = 'Frame 001'
 $!GlobalTime 
   SolutionTime = 0
 $!DeleteLineMaps 
-$!ActiveLineMaps  =  [1-2]
+$!ActiveLineMaps  =  [1-3]
 $!GlobalLinePlot 
   DataLabels
     {
@@ -83,17 +83,23 @@ $!LineMap  [1]
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 3
+    XAxisVar = 1
+    YAxisVar = 2
     }
   Lines
     {
-    Color = Green
+    Color = Custom1
+    LineThickness = 0.4
     }
   Symbols
     {
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
     Color = Green
     FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
@@ -109,2539 +115,3159 @@ $!LineMap  [2]
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 4
+    XAxisVar = 1
+    YAxisVar = 3
     }
   Lines
     {
-    Color = Blue
+    Color = Red
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [3]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 5
+    XAxisVar = 1
+    YAxisVar = 4
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [4]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 6
+    XAxisVar = 1
+    YAxisVar = 5
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [5]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 7
+    XAxisVar = 1
+    YAxisVar = 6
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [6]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 8
+    XAxisVar = 1
+    YAxisVar = 7
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [7]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 9
+    XAxisVar = 1
+    YAxisVar = 8
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [8]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 10
+    XAxisVar = 1
+    YAxisVar = 9
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [9]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 11
+    XAxisVar = 1
+    YAxisVar = 10
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [10]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 12
+    XAxisVar = 1
+    YAxisVar = 11
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [11]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 13
+    XAxisVar = 1
+    YAxisVar = 12
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [12]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 14
+    XAxisVar = 1
+    YAxisVar = 13
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [13]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 15
+    XAxisVar = 1
+    YAxisVar = 14
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [14]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 16
+    XAxisVar = 1
+    YAxisVar = 15
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [15]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 17
+    XAxisVar = 1
+    YAxisVar = 16
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [16]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 18
+    XAxisVar = 1
+    YAxisVar = 17
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [17]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 19
+    XAxisVar = 1
+    YAxisVar = 18
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [18]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 20
+    XAxisVar = 1
+    YAxisVar = 19
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [19]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 21
+    XAxisVar = 1
+    YAxisVar = 20
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [20]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 22
+    XAxisVar = 1
+    YAxisVar = 21
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [21]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 23
+    XAxisVar = 1
+    YAxisVar = 22
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [22]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 24
+    XAxisVar = 1
+    YAxisVar = 23
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [23]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 25
+    XAxisVar = 1
+    YAxisVar = 24
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [24]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 26
+    XAxisVar = 1
+    YAxisVar = 25
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [25]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 27
+    XAxisVar = 1
+    YAxisVar = 26
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [26]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 28
+    XAxisVar = 1
+    YAxisVar = 27
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [27]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 29
+    XAxisVar = 1
+    YAxisVar = 28
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [28]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 30
+    XAxisVar = 1
+    YAxisVar = 29
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [29]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 31
+    XAxisVar = 1
+    YAxisVar = 30
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [30]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 32
+    XAxisVar = 1
+    YAxisVar = 31
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [31]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 33
+    XAxisVar = 1
+    YAxisVar = 32
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [32]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 34
+    XAxisVar = 1
+    YAxisVar = 33
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [33]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 35
+    XAxisVar = 1
+    YAxisVar = 34
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [34]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 36
+    XAxisVar = 1
+    YAxisVar = 35
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [35]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 37
+    XAxisVar = 1
+    YAxisVar = 36
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [36]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 38
+    XAxisVar = 1
+    YAxisVar = 37
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [37]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 39
+    XAxisVar = 1
+    YAxisVar = 38
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [38]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 40
+    XAxisVar = 1
+    YAxisVar = 39
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [39]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 41
+    XAxisVar = 1
+    YAxisVar = 40
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [40]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 42
+    XAxisVar = 1
+    YAxisVar = 41
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [41]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 43
+    XAxisVar = 1
+    YAxisVar = 42
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [42]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 44
+    XAxisVar = 1
+    YAxisVar = 43
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [43]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 45
+    XAxisVar = 1
+    YAxisVar = 44
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [44]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 46
+    XAxisVar = 1
+    YAxisVar = 45
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [45]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 47
+    XAxisVar = 1
+    YAxisVar = 46
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [46]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 48
+    XAxisVar = 1
+    YAxisVar = 47
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [47]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 49
+    XAxisVar = 1
+    YAxisVar = 48
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [48]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 50
+    XAxisVar = 1
+    YAxisVar = 49
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [49]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 51
+    XAxisVar = 1
+    YAxisVar = 50
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [50]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 52
+    XAxisVar = 1
+    YAxisVar = 51
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [51]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 53
+    XAxisVar = 1
+    YAxisVar = 52
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [52]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 54
+    XAxisVar = 1
+    YAxisVar = 53
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [53]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 55
+    XAxisVar = 1
+    YAxisVar = 54
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [54]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 56
+    XAxisVar = 1
+    YAxisVar = 55
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [55]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 57
+    XAxisVar = 1
+    YAxisVar = 56
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [56]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 58
+    XAxisVar = 1
+    YAxisVar = 57
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [57]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 59
+    XAxisVar = 1
+    YAxisVar = 58
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [58]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 60
+    XAxisVar = 1
+    YAxisVar = 59
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [59]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 61
+    XAxisVar = 1
+    YAxisVar = 60
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [60]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 62
+    XAxisVar = 1
+    YAxisVar = 61
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [61]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 63
+    XAxisVar = 1
+    YAxisVar = 62
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [62]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 64
+    XAxisVar = 1
+    YAxisVar = 63
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [63]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 65
+    XAxisVar = 1
+    YAxisVar = 64
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [64]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 66
+    XAxisVar = 1
+    YAxisVar = 65
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [65]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 67
+    XAxisVar = 1
+    YAxisVar = 66
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [66]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 68
+    XAxisVar = 1
+    YAxisVar = 67
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [67]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 69
+    XAxisVar = 1
+    YAxisVar = 68
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [68]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 70
+    XAxisVar = 1
+    YAxisVar = 69
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [69]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 71
+    XAxisVar = 1
+    YAxisVar = 70
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [70]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 72
+    XAxisVar = 1
+    YAxisVar = 71
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [71]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 73
+    XAxisVar = 1
+    YAxisVar = 72
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [72]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 74
+    XAxisVar = 1
+    YAxisVar = 73
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [73]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 75
+    XAxisVar = 1
+    YAxisVar = 74
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [74]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 76
+    XAxisVar = 1
+    YAxisVar = 75
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [75]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 77
+    XAxisVar = 1
+    YAxisVar = 76
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [76]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 78
+    XAxisVar = 1
+    YAxisVar = 77
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [77]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 79
+    XAxisVar = 1
+    YAxisVar = 78
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [78]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 80
+    XAxisVar = 1
+    YAxisVar = 79
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [79]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 81
+    XAxisVar = 1
+    YAxisVar = 80
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [80]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 82
+    XAxisVar = 1
+    YAxisVar = 81
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [81]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 83
+    XAxisVar = 1
+    YAxisVar = 82
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [82]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 84
+    XAxisVar = 1
+    YAxisVar = 83
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [83]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 85
+    XAxisVar = 1
+    YAxisVar = 84
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [84]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 86
+    XAxisVar = 1
+    YAxisVar = 85
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [85]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 87
+    XAxisVar = 1
+    YAxisVar = 86
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [86]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 88
+    XAxisVar = 1
+    YAxisVar = 87
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [87]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 89
+    XAxisVar = 1
+    YAxisVar = 88
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [88]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 90
+    XAxisVar = 1
+    YAxisVar = 89
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [89]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 91
+    XAxisVar = 1
+    YAxisVar = 90
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [90]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 92
+    XAxisVar = 1
+    YAxisVar = 91
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [91]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 93
+    XAxisVar = 1
+    YAxisVar = 92
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [92]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 94
+    XAxisVar = 1
+    YAxisVar = 93
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [93]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 95
+    XAxisVar = 1
+    YAxisVar = 94
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom1
-    FillColor = Custom1
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom1
-    FillColor = Custom1
+    Color = Blue
+    FillColor = Blue
     }
   ErrorBars
     {
-    Color = Custom1
+    Color = Blue
     }
 $!LineMap  [94]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 96
+    XAxisVar = 1
+    YAxisVar = 95
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Custom3
-    FillColor = Custom3
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom1
+    FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Custom3
-    FillColor = Custom3
+    Color = Custom1
+    FillColor = Custom1
     }
   ErrorBars
     {
-    Color = Custom3
+    Color = Custom1
     }
 $!LineMap  [95]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 97
+    XAxisVar = 1
+    YAxisVar = 96
     }
   Lines
     {
-    Color = Purple
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Purple
-    FillColor = Purple
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Purple
-    FillColor = Purple
+    Color = Custom3
+    FillColor = Custom3
     }
   ErrorBars
     {
-    Color = Purple
+    Color = Custom3
     }
 $!LineMap  [96]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 98
+    XAxisVar = 1
+    YAxisVar = 97
     }
   Lines
     {
-    Color = Red
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Red
-    FillColor = Red
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Red
-    FillColor = Red
+    Color = Purple
+    FillColor = Purple
     }
   ErrorBars
     {
-    Color = Red
+    Color = Purple
     }
 $!LineMap  [97]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 99
+    XAxisVar = 1
+    YAxisVar = 98
     }
   Lines
     {
-    Color = Green
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Green
-    FillColor = Green
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillColor = Red
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Green
-    FillColor = Green
+    Color = Red
+    FillColor = Red
     }
   ErrorBars
     {
-    Color = Green
+    Color = Red
     }
 $!LineMap  [98]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
-    YAxisVar = 100
+    XAxisVar = 1
+    YAxisVar = 99
     }
   Lines
     {
     Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
-    Color = Blue
-    FillColor = Blue
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Green
+    FillColor = Green
+    Size = 0.5
     }
   BarCharts
     {
-    Color = Blue
-    FillColor = Blue
+    Color = Green
+    FillColor = Green
     }
   ErrorBars
     {
-    Color = Blue
+    Color = Green
     }
 $!LineMap  [99]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
+    XAxisVar = 1
+    YAxisVar = 100
+    }
+  Lines
+    {
+    Color = Blue
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Blue
+    FillColor = Blue
+    Size = 0.5
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [100]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
     YAxisVar = 101
     }
   Lines
     {
-    Color = Custom1
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
     Color = Custom1
     FillColor = Custom1
+    Size = 0.5
     }
   BarCharts
     {
@@ -2652,22 +3278,28 @@ $!LineMap  [99]
     {
     Color = Custom1
     }
-$!LineMap  [100]
+$!LineMap  [101]
   Name = '&DV&'
   Assign
     {
     Zone = 1
-    XAxisVar = 2
+    XAxisVar = 1
     YAxisVar = 102
     }
   Lines
     {
-    Color = Custom3
+    Color = Blue
+    LineThickness = 0.4
     }
   Symbols
     {
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
     Color = Custom3
     FillColor = Custom3
+    Size = 0.5
     }
   BarCharts
     {
@@ -2698,14 +3330,16 @@ $!XYLineAxis
 $!XYLineAxis 
   YDetail 1
     {
-    RangeMin = -0.091289997100830078125
-    RangeMax = 1.000309182190895152
+    RangeMin = -0.16418999433517456055
+    RangeMax = 1.0001164189994335985
     GRSpacing = 0.2
     Gridlines
       {
       Show = Yes
       }
     }
+$!LinePlotLayers 
+  ShowSymbols = Yes
 $!FrameControl ActivateByNumber
   Frame = 1
 $!SetStyleBase Config

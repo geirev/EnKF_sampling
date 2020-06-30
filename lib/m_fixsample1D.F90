@@ -7,7 +7,6 @@ subroutine fixsample1D(E,n,m)
 
    integer iens,i
    real, allocatable :: average(:), variance(:)
-   real var
 
    allocate(average(n), variance(n))
 
@@ -15,7 +14,7 @@ subroutine fixsample1D(E,n,m)
    do iens=1,m
       average(:)=average(:)+E(:,iens)
    enddo
-   average=average/float(m)
+   average=average/real(m)
 
    do iens=1,m
       E(:,iens)=E(:,iens)-average(:)
@@ -26,10 +25,9 @@ subroutine fixsample1D(E,n,m)
       variance(:) = variance(:) + E(:,iens)**2.
    enddo
 
-   var=sum(variance)/real(m*n)
 
    do i=1,n
-      variance(i)=1.0/sqrt( variance(i)/float(m) )
+      variance(i)=1.0/sqrt( variance(i)/real(m) )
    enddo
 
    do iens=1,m

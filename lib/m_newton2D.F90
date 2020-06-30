@@ -10,7 +10,7 @@ subroutine newton2D(r1,r2,n1,n2,dx,dy,rx,ry,lconv,verbose)
    real,    intent(in)     :: rx,ry
 
    logical lconv
-   real, parameter :: eps=1.0E-05
+   real, parameter :: eps=1.0E-08
    real inc1,inc2,err1,err2
    integer i,j
    real f,g,f1,g1,f2,g2

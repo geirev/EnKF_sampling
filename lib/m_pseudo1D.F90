@@ -2,83 +2,58 @@ module m_pseudo1D
 contains
 subroutine pseudo1D(A,nx,nrfields,rx,dx,n1)
    use m_random
-   use m_newton1D
    use mod_fftw3
    implicit none
-   integer, intent(in) :: nx                ! Dimension of random vector
-   integer, intent(in) :: nrfields          ! Number of random vectors
-   real, intent(out)   :: A(nx,nrfields)    ! The random vectors
-   real, intent(in)    :: rx                ! characteristic lengthscale
-   real, intent(in)    :: dx                ! delta x  ( >1 )
-   integer, intent(in) :: n1              ! Dimension of random vector
+   integer, intent(in) :: nx               ! Dimension of random vector
+   integer, intent(in) :: nrfields         ! Number of random vectors
+   real, intent(out)   :: A(nx,nrfields)   ! The random vectors
+   real, intent(in)    :: rx               ! characteristic lengthscale
+   real, intent(in)    :: dx               ! delta x  ( >1 )
+   integer, intent(in) :: n1               ! Dimension of random vector
+! n1 should visely be selected as n1=nx*rx/dx unless periodic fields
+! For periodic fields n1=nx. If rx=n*dx and n > 0.1*nx there is a risk for negative
+! long range correlations.
 
-   real r1
-   logical cnv
    integer l,i
    real c
-   real kappa2,kappa
    real pi2,deltak,summ
 
-   real fampl(0:n1/2,2)
+   real fampl(2,0:n1/2)
    real phi(0:n1/2)
 
-
    real tt
-   logical, save :: diag=.true.
    real, parameter :: pi=3.141592653589
 
    integer(kind=8) plan
-   complex arrayC(n1/2+1)
    real y(n1)
 
    pi2=2.0*pi
    deltak=pi2/(real(n1)*dx)
-   kappa=pi2/(real(n1)*dx)
-   kappa2=kappa**2
 
-   call dfftw_plan_dft_c2r_1d(plan,n1,arrayC,y,FFTW_ESTIMATE)
+   call dfftw_plan_dft_c2r_1d(plan,n1,fampl,y,FFTW_ESTIMATE)
 
-   r1=3.0/rx
-   if (diag) print '(a,f13.5,i5,2f12.2)','Call newton1D with ',r1,n1,dx,rx
-   call newton1D(r1,n1,dx,rx,cnv)
-   if (.not.cnv) then
-      stop 'pseudo1D: newton did not converge.  Recompile with diag set to true in pseudo1D.'
-   endif
-   if (diag) print *, 'Newton gave r1= ',r1,0.5*pi*rx,1.0/(0.5*pi*rx)
-   r1=1.0/(0.5*pi*rx)
-
-
+! Ensuring variance of samples = 1.0
    summ=0.0
    do l=-n1/2+1,n1/2
-      summ=summ+exp(-2.0*(kappa2*real(l*l))/r1**2)
+      summ=summ+exp( -( (pi*rx*real(l)) / (real(n1)*dx) )**2 )
    enddo
-   summ=summ-1.0
+!   summ=summ-1.0   ! Subtract one if mean is not sampled.
    c=sqrt(1.0/(deltak*summ))
 
-   if (diag) then
-      print *,'pseudo1D: summ ',summ
-      print *,'pseudo1D: rx  ',rx
-      print *,'pseudo1D: r1  ',r1
-      print *,'pseudo1D: c=  ',c
-   endif
-
    do i=1,nrfields
-!     Calculating the random wave phases 
       call random_number(phi)
       phi=pi2*phi
 
-
       do l=0,n1/2 
-         tt=kappa2*real(l*l)/r1**2
-         fampl(l,1)=exp(-tt)*cos(phi(l))*sqrt(deltak)*c
-         fampl(l,2)=exp(-tt)*sin(phi(l))*sqrt(deltak)*c
+         tt=0.5*((pi*rx*real(l))/(n1*dx))**2
+         fampl(1,l)=exp(-tt)*cos(phi(l))*sqrt(deltak)*c
+         fampl(2,l)=exp(-tt)*sin(phi(l))*sqrt(deltak)*c
       enddo
-      fampl(0,1)=0.0 ! This one only adds a constant mean value to each field
-      fampl(0,2)=0.0 ! This is always zero
+!      fampl(1,0)=0.0 ! This coefficient adds a constant mean value to each field if non-zero
+      fampl(2,0)=0.0 ! This is always zero
 
-      arrayC(:)=cmplx(fampl(:,1),fampl(:,2))
-      call dfftw_execute(plan)
-
+      call dfftw_execute_dft_c2r(plan, fampl, y)
+      
       A(1:nx,i)=y(1:nx)
 
    enddo

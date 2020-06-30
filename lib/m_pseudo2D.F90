@@ -62,8 +62,8 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
 
 
 ! computing the coefficients r1, r2, and c
-   r1=3.0/rx
-   r2=3.0/ry
+   r1=sqrt(8.0)/rx
+   r2=sqrt(8.0)/ry
 
    if (verbose) print '(a,2f12.5,2i6,4f10.2)','pseudo2D: Call newton with ',r1,r2,n1,n2,dx,dy,rx,ry
    call newton2D(r1,r2,n1,n2,dx,dy,rx,ry,cnv,verbose)
@@ -78,7 +78,7 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
    enddo
    enddo
 
-   summ=summ-1.0
+!   summ=summ-1.0
 
    c=sqrt(1.0/(deltak*summ))
 
@@ -112,7 +112,7 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
          fampl(l,p,2)=e*sin(phi(l,p))*sqrt(deltak)*c
       enddo
       enddo
-      fampl(0,0,1)=0.0
+!      fampl(0,0,1)=0.0  ! If set to zero a random constant mean is not added to each realization
       fampl(0,0,2)=0.0
 
       do p=0,n2/2-1
