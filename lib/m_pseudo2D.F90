@@ -2,13 +2,20 @@ module m_pseudo2D
 
 contains
 
-subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
+subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose,lmean)
 ! This routine calculates the pseudo random filds using
-! the procedure outlined in Evensen (1994) \cite{eve94a}.
+! the procedure outlined in Evensen (1994,2009).
+! But with analytic solution for r1 and r2 (Evensen, 2020).
 
+! n1 should visely be selected as n1=nx*rx/dx unless periodic fields
+! For periodic fields n1=nx. If rx=n*dx and n > 0.1*nx there is a risk for negative
+! long range correlations.  Likewise for n2.
+
+! Setting lmean=.false. generates random fields with mean approx equal zero for each realization
+! by setting the first fourier amplitude equal to zero.
 
    use mod_fftw3
-   use m_newton2D
+!   use m_newton2D
    implicit none
    logical, Intent(IN) :: verbose
    integer, intent(in) :: nx,ny           ! horizontal dimensions
@@ -17,7 +24,8 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
    real, intent(in)    :: rx,ry           ! Horizontal decorrelation lengths (rx in dir theta)
    real, intent(in)    :: dx,dy           ! grid spacing
    real, intent(in)    :: theta           ! rotation angle in deg (theta=0 is east, rotation anticlocwise)
-   integer, intent(in) :: n1,n2           ! horizontal dimensions in fft grid
+   integer, intent(inout) :: n1,n2           ! horizontal dimensions in fft grid (even numbers)
+   logical, intent(in), optional :: lmean ! random mean 
 
    real r1,r2,c
 
@@ -25,7 +33,7 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
 
    integer l,p,j,m,i
    real kappa2,lambda2,kappa,lambda
-   real pi2,deltak,summ,scale
+   real pi2,deltak,summ
    real a11tmp,a22tmp,a11,a22,a12,torad
 
    real, allocatable    :: fampl(:,:,:)
@@ -34,7 +42,7 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
    complex, allocatable :: x(:,:)   ! Fourier amplitudes
 
    real, parameter :: pi=3.141592653589
-   logical cnv
+   logical lm
    real e
 
    if (lde < 1)    stop 'pseudo2D: error lde < 1'
@@ -43,7 +51,16 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
    if (n1 < nx)    stop 'pseudo2D: n1 < nx'
    if (n2 < ny)    stop 'pseudo2D: n2 < ny'
 
-   allocate(fampl(0:n1/2,-n2/2:n2/2,2))
+   if (mod(n1,2) /= 0) n1=2*int(real(n1+1)/2.0) ! make n1 even
+   if (mod(n2,2) /= 0) n2=2*int(real(n2+1)/2.0) ! make n2 even
+
+   if (present(lmean)) then
+      lm=lmean    ! optional override or confirm default
+   else
+      lm=.true.   ! default is true
+   endif
+
+   allocate(fampl(2,0:n1/2,-n2/2:n2/2))
    allocate(phi(0:n1/2,-n2/2:n2/2))
    allocate(y(0:n1+1,0:n2-1))
    allocate(x(0:n1/2,0:n2-1))
@@ -54,7 +71,6 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
    kappa2=kappa**2
    lambda=pi2/(real(n2)*dy)
    lambda2=lambda**2
-   scale=1.0
 
    if (allocated(y)) deallocate(y)
    allocate(y(0:n1-1,0:n2-1))
@@ -65,11 +81,11 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
    r1=sqrt(8.0)/rx
    r2=sqrt(8.0)/ry
 
-   if (verbose) print '(a,2f12.5,2i6,4f10.2)','pseudo2D: Call newton with ',r1,r2,n1,n2,dx,dy,rx,ry
-   call newton2D(r1,r2,n1,n2,dx,dy,rx,ry,cnv,verbose)
-   if (.not.cnv) then
-      stop 'newton did not converge'
-   endif
+!   if (verbose) print '(a,2f12.5,2i6,4f10.2)','pseudo2D: Call newton with ',r1,r2,n1,n2,dx,dy,rx,ry
+!   call newton2D(r1,r2,n1,n2,dx,dy,rx,ry,cnv,verbose)
+!   if (.not.cnv) then
+!      stop 'newton did not converge'
+!   endif
    
    summ=0.0
    do p=-n2/2+1,n2/2
@@ -78,7 +94,7 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
    enddo
    enddo
 
-!   summ=summ-1.0
+   if (.not.lm) summ=summ-1.0   ! Subtract one if mean is not sampled.
 
    c=sqrt(1.0/(deltak*summ))
 
@@ -108,22 +124,22 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose)
       do l=0,n1/2 
 !         e=exp(-(kappa2*real(l*l)/r1**2+lambda2*float(p*p)/r2**2))
          e=exp(-( a11*kappa2*real(l*l) + 2.0*a12*kappa*lambda*float(l*p) + a22*lambda2*float(p*p) ))
-         fampl(l,p,1)=e*cos(phi(l,p))*sqrt(deltak)*c
-         fampl(l,p,2)=e*sin(phi(l,p))*sqrt(deltak)*c
+         fampl(1,l,p)=e*cos(phi(l,p))*sqrt(deltak)*c
+         fampl(2,l,p)=e*sin(phi(l,p))*sqrt(deltak)*c
       enddo
       enddo
-!      fampl(0,0,1)=0.0  ! If set to zero a random constant mean is not added to each realization
-      fampl(0,0,2)=0.0
+      if (.not.lm) fampl(1,0,0)=0.0 
+      fampl(2,0,0)=0.0
 
       do p=0,n2/2-1
-         x(:,p)=cmplx(fampl(:,p,1),fampl(:,p,2))
+         x(:,p)=cmplx(fampl(1,:,p),fampl(2,:,p))
       enddo
 
       do p=n2/2,n2-1
-         x(:,p)=cmplx(fampl(:,-n2+p,1),fampl(:,-n2+p,2))
+         x(:,p)=cmplx(fampl(1,:,-n2+p),fampl(2,:,-n2+p))
       enddo
 
-      call dfftw_execute(plan)
+      call dfftw_execute_dft_c2r(plan,x,y)
 
       do m=1,ny
       do i=1,nx

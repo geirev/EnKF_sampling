@@ -10,7 +10,7 @@ subroutine pseudo1D(A,nx,nrfields,rx,dx,n1,lmean)
    real, intent(in)    :: rx               ! characteristic lengthscale
    real, intent(in)    :: dx               ! delta x  ( >1 )
    integer, intent(in) :: n1               ! Dimension of random vector
-   logical, intent(inout), optional :: lmean  ! random mean 
+   logical, intent(in), optional :: lmean  ! random mean 
 ! n1 should visely be selected as n1=nx*rx/dx unless periodic fields
 ! For periodic fields n1=nx. If rx=n*dx and n > 0.1*nx there is a risk for negative
 ! long range correlations.

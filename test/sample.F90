@@ -11,10 +11,10 @@ program sample
 
    real :: xlength=10000.0                ! domain size
    real :: ylength=10000.0                ! domain size
-   integer, parameter :: nrens=10000      ! ensemble size 
+   integer, parameter :: nrens=1000       ! ensemble size 
    integer, parameter :: nx=100           ! gridsize in x direction
    integer, parameter :: ny=100           ! gridsize in y direction
-   real :: cor1=1500.0                     ! decorrelation length in princepal direction
+   real :: cor1=2000.0                     ! decorrelation length in princepal direction
    real :: cor2=600.0                     ! decorrelation length normal to princepal direction
    real :: dir=60.0                       ! princepal direction
 
@@ -22,7 +22,6 @@ program sample
    integer n2                             ! y-dimension of grid
 
    integer i
-   logical lmean                          ! true to add random mean to realizations
 
 
    real dx,dy
@@ -46,23 +45,22 @@ program sample
    dy=ylength/float(ny-1)
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   n1=nint(real(nx)*cor1/dx) ; print '(2(a,i5))','nx=',nx,', n1=',n1
-   n2=nint(real(ny)*cor2/dy) ; print '(2(a,i5))','ny=',ny,', n2=',n2
+   n1=2*nint(real(nx)*cor1/(2.0*dx)) ; print '(2(a,i5))','nx=',nx,', n1=',n1
+   n2=2*nint(real(ny)*cor2/(2.0*dy)) ; print '(2(a,i5))','ny=',ny,', n2=',n2
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Sample 2D pseudo random fields
-!   call pseudo2D(A,nx,ny,nrens,cor1,cor2,dx,dy,n1,n2,dir,.true.)
-!   call fixsample2D(A,nx,ny,nrens)
-A(1,1,1)=0.0
-dir=0.0
+   call pseudo2D(A,nx,ny,nrens,cor1,cor2,dx,dy,n1,n2,dir,.true.)
+   call fixsample2D(A,nx,ny,nrens)
+!A(1,1,1)=0.0
+!dir=0.0
 
-!   call tecfld('ens2D',nx,ny,min(10,nrens),A)
+   call tecfld('ens2D',nx,ny,min(10,nrens),A)
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Sample all random fields and interpolate to model grid
    print '(a)','Calling pseudo1D'
-   lmean=.false.
-   call pseudo1D(B,nx,nrens,cor1,dx,n1,lmean)
+   call pseudo1D(B,nx,nrens,cor1,dx,n1,.true.)
 
    print '(a)','Calling fixsample1D'
    call fixsample1D(B,nx,nrens)
