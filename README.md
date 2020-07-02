@@ -16,22 +16,24 @@ available for many unix systems from http://www.fftw.org/
 Before compiling define your achitecture in the file MODEL.CPP
 
 Installation:
-```
 install the scripts in EnKF_sampling/bin in your path
-cd EnKF_sampling/lib; make
+```
+cd EnKF_sampling/lib
+make
 ```
 
 To test (depends on EnKF_analysis routines): 
-
 ```
 git clone EnKF_analysis
 cd EnKF_analysis/lib
 ```
-
 change build in EnKF_analysis/lib/makefile to point to EnKF_sampling/build
-
 ```
 make
-cd EnKF_sampling/test; make
-cd build; testsampling
+```
+Then
+```
+cd EnKF_sampling/test
+make
+../build/testsampling
 ```
