@@ -18,13 +18,14 @@ Before compiling define your achitecture in the file MODEL.CPP
 Installation:
 install the scripts in EnKF_sampling/bin in your path
 ```
+git clone git@github.com:geirev/EnKF_sampling.git
 cd EnKF_sampling/lib
 make
 ```
 
 To test (depends on EnKF_analysis routines): 
 ```
-git clone EnKF_analysis
+git clone git@github.com:geirev/EnKF_analysis.git
 cd EnKF_analysis/lib
 ```
 change build in EnKF_analysis/lib/makefile to point to EnKF_sampling/build
