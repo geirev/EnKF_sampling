@@ -19,14 +19,14 @@ subroutine set_random_seed2
       close(10)
       CALL RANDOM_SEED(PUT = seed)
       call random_number(x)
-      print *,'random seed set using stored seed from seed.dat:',x
+      print '(a,f20.18)','Random seed set using stored seed from seed.dat:',x
 
    else
       CALL SYSTEM_CLOCK(COUNT=clock)
       seed = clock + 37 * (/ (i - 1, i = 1, n) /)
       CALL RANDOM_SEED(PUT = seed)
       call random_number(x)
-      print *,'new random seed set using system clock and stored to seed.dat:',x
+      print '(a,f20.18)','New random seed set using system clock and stored to seed.dat:',x
       open(10,file='seed.dat')
          write(10,*)seed
       close(10)

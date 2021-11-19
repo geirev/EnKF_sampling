@@ -13,7 +13,5 @@ m_pseudo2D.o:      MODEL.CPP
 m_pseudo2D.o:      mod_fftw3.o
 m_random.o:      makefile
 m_random.o:      MODEL.CPP
-m_randrot.o:      makefile
-m_randrot.o:      MODEL.CPP
 m_set_random_seed2.o:      makefile
 m_set_random_seed2.o:      MODEL.CPP
