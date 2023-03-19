@@ -1,6 +1,4 @@
-MODULES = \
-	m_tecfld.F90
-
-F90FILES = \
+F90SOURCE = \
+	m_tecfld.F90\
 	sample.F90
 

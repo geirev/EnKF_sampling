@@ -1,11 +1,12 @@
-BUILD = ../../EnKF_MS/build
-VPATH = .:RCS:$(BUILD)
+BUILD = ../build
+VPATH = .:$(BUILD)
 
 .SUFFIXES:
 .SUFFIXES: .o .F90 .f90 .F .f .H .h
 
 
 
+LD = gfortran
 CF90 = gfortran
 CF77 = gfortran
 
@@ -47,22 +48,20 @@ CPP = /usr/bin/cpp
 include source.files
 include target.mk
 
-INC2 =$(INC1:.H=.h)
-FILES =$(F90FILES) $(F77FILES) $(MODULES)
-FFILES =$(F90FILES:.F90=.f90) $(F77FILES:.F=.f) $(MODULES:.F90=.f90)
-OBJECTS = $(F90FILES:.F90=.o) $(F77FILES:.F=.o)
-OMOD = $(MODULES:.F90=.o) $(MODULES77:.F=.o)
-
+INCFILES =$(INCSOURCE:.H=.h)
+F90FILES =$(F90SOURCE:.F90=.f90)
+F77FILES =$(F77SOURCE:.F=.f)
+OBJECTS = $(F90SOURCE:.F90=.o) $(F77SOURCE:.F=.o)
 
 
 all: new $(TARGET)
 
-$(TARGET): $(INC2) $(OMOD) $(OBJECTS)
+$(TARGET): $(INCFILES) $(OBJECTS)
 	@mkdir -p $(BUILD)
 	cd ./$(BUILD) ;  ar rvs $(TARGET) $(OMOD) $(OBJECTS)
 
 clean:
-	cd $(BUILD) ; rm -rf *.o *.mod *.f90 rii_files
+	cd $(BUILD) ; rm -rf *.o *.mod *.f90 rii_files lib*.a
 
 new: source depend
 
@@ -72,8 +71,7 @@ source:
 depend:
 	../bin/mkdepend_linux.pl | sort -u > depends.file
 
-tags: $(FILES)
+tags: $(F90FILES) $(F77FILES) $(INCFILES)
 	ctags *.F90
-	#f90tags.sh
 
 include depends.file

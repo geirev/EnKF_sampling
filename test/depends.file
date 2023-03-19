@@ -2,8 +2,9 @@ m_tecfld.o:      makefile
 m_tecfld.o:      MODEL.CPP
 sample.o:      makefile
 sample.o:      m_fixsample1D.o
+sample.o:      m_fixsample2D.o
 sample.o:      MODEL.CPP
 sample.o:      m_pseudo1D.o
-sample.o:      m_random.o
+sample.o:      m_pseudo2D.o
 sample.o:      m_set_random_seed2.o
 sample.o:      m_tecfld.o

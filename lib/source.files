@@ -1,4 +1,4 @@
-MODULES = \
+F90SOURCE = \
 	m_fixsample1D.F90\
 	m_fixsample2D.F90\
 	mod_fftw3.F90\
