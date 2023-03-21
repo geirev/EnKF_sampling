@@ -1,6 +1,4 @@
-MODULES = \
-	mod_fftw3.F90
-
-F90FILES = \
+F90SOURCE = \
+	mod_fftw3.F90\
 	testp.F90
 

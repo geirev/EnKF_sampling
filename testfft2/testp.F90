@@ -1,6 +1,4 @@
-
 program main
-   use ISO_C_BINDING
    use mod_fftw3
    implicit none
 
@@ -21,7 +19,6 @@ program main
    call dfftw_plan_dft_c2r_1d(plan_c2r, n, test_in, test_in, FFTW_MEASURE)
 
    do i=0,n/2-1
-!      test_in(i) = (1.0/sqrt(2.0*pi*rd**2)) * exp(-0.5*(real(i))**2/rd**2)
       test_in(i) = (dx/sqrt(pi*rd**2)) * exp(-(real(i)*dx)**2/rd**2)
       test_in(n-i) = test_in(i)
    enddo
@@ -38,13 +35,12 @@ program main
    do i=0,n-1,2
       write(10,'(3f13.5)')real(i),test_in(i)
    enddo
-   close(10) 
+   close(10)
 
    open(10,file='anaFFT.dat')
    print *,'2pi/n=',2.0*pi/real(n),0.07979
    do i=0,n-1,2
-!      write(10,'(3f13.5)')real(i),exp(-2.0*(0.5*pi*rd*real(i)/real(n))**2) 
-      write(10,'(3f13.5)')real(i),exp(     -( (0.5*pi*rd*real(i))/(real(n)*dx) )**2) 
+      write(10,'(3f13.5)')real(i),exp(     -( (0.5*pi*rd*real(i))/(real(n)*dx) )**2)
    enddo
    close(10)
 

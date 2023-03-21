@@ -20,7 +20,7 @@ CPPMODEL  =
 
 CPPFLAGS = -traditional -P $(CPPARCH) $(CPPMODEL)
 
-LIBS =    ./libsampling.a -lblas -lfftw3 -llapack
+LIBS =    ./libsampling.a -lfftw3 
 
 BINDIR = $(HOME)/bin
 
@@ -58,10 +58,11 @@ OBJECTS = $(F90SOURCE:.F90=.o) $(F77SOURCE:.F=.o)
 
 all: new $(TARGET) install
 
-libs: libsampling.a
+libs: libsampling.a 
 
 libsampling.a:
-	cd ../../EnKF_sampling/lib; make BUILD=../../EnKF_sampling/build
+	cd ../../EnKF_sampling/lib; make BUILD=../build
+
 
 $(TARGET): $(INCFILES) $(OBJECTS)
 	@mkdir -p $(BUILD)
@@ -83,5 +84,6 @@ depend:
 
 tags: $(F90FILES) $(F77FILES) $(INCFILES)
 	ctags *.F90
+	#f90tags.sh
 
 include depends.file
