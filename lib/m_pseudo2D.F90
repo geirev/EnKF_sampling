@@ -1,7 +1,5 @@
 module m_pseudo2D
-
 contains
-
 subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose,lmean)
 ! This routine calculates the pseudo random filds using
 ! the procedure outlined in Evensen (1994,2009).
@@ -17,7 +15,7 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose,lmean)
    use mod_fftw3
 !   use m_newton2D
    implicit none
-   logical, Intent(IN) :: verbose
+   logical, intent(in) :: verbose
    integer, intent(in) :: nx,ny           ! horizontal dimensions
    integer, intent(in) :: lde             ! number of fields stored at the time
    real, intent(out)   :: Amat(nx,ny,lde) ! generated random fields
@@ -25,7 +23,7 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose,lmean)
    real, intent(in)    :: dx,dy           ! grid spacing
    real, intent(in)    :: theta           ! rotation angle in deg (theta=0 is east, rotation anticlocwise)
    integer, intent(inout) :: n1,n2           ! horizontal dimensions in fft grid (even numbers)
-   logical, intent(in), optional :: lmean ! random mean 
+   logical, intent(in), optional :: lmean ! random mean
 
    real r1,r2,c
 
@@ -86,11 +84,11 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose,lmean)
 !   if (.not.cnv) then
 !      stop 'newton did not converge'
 !   endif
-   
+
    summ=0.0
    do p=-n2/2+1,n2/2
    do l=-n1/2+1,n1/2
-      summ=summ+exp(-2.0*(kappa2*real(l*l)/r1**2 + lambda2*float(p*p)/r2**2))
+      summ=summ+exp(-2.0*(kappa2*real(l*l)/r1**2 + lambda2*real(p*p)/r2**2))
    enddo
    enddo
 
@@ -121,14 +119,14 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose,lmean)
 
       ! Calculating the wave amplitues
       do p=-n2/2,n2/2
-      do l=0,n1/2 
-!         e=exp(-(kappa2*real(l*l)/r1**2+lambda2*float(p*p)/r2**2))
-         e=exp(-( a11*kappa2*real(l*l) + 2.0*a12*kappa*lambda*float(l*p) + a22*lambda2*float(p*p) ))
+      do l=0,n1/2
+!         e=exp(-(kappa2*real(l*l)/r1**2+lambda2*real(p*p)/r2**2))
+         e=exp(-( a11*kappa2*real(l*l) + 2.0*a12*kappa*lambda*real(l*p) + a22*lambda2*real(p*p) ))
          fampl(1,l,p)=e*cos(phi(l,p))*sqrt(deltak)*c
          fampl(2,l,p)=e*sin(phi(l,p))*sqrt(deltak)*c
       enddo
       enddo
-      if (.not.lm) fampl(1,0,0)=0.0 
+      if (.not.lm) fampl(1,0,0)=0.0
       fampl(2,0,0)=0.0
 
       do p=0,n2/2-1
@@ -153,5 +151,5 @@ subroutine pseudo2D(Amat,nx,ny,lde,rx,ry,dx,dy,n1,n2,theta,verbose,lmean)
 
    deallocate(fampl, phi, y, x)
 
-end subroutine pseudo2D
-end module m_pseudo2D
+end subroutine
+end module

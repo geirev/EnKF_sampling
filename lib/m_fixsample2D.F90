@@ -15,7 +15,7 @@ subroutine fixsample2D(E,nx,ny,nrens)
    do iens=1,nrens
       average(:,:)=average(:,:)+E(:,:,iens)
    enddo
-   average=average/float(nrens)
+   average=average/real(nrens)
 
    do iens=1,nrens
       E(:,:,iens)=E(:,:,iens)-average(:,:)
@@ -36,7 +36,7 @@ subroutine fixsample2D(E,nx,ny,nrens)
 
    do j=1,ny
    do i=1,nx
-      variance(i,j)=1.0/sqrt( variance(i,j)/float(nrens) )
+      variance(i,j)=1.0/sqrt( variance(i,j)/real(nrens) )
    enddo
    enddo
 

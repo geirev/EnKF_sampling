@@ -1,0 +1,81 @@
+BUILD = ../../LBM/build/
+VPATH = .:$(BUILD)
+
+.SUFFIXES:
+.SUFFIXES: .o .F90 .f90 .F .f .H .h
+
+
+
+LD = pgf90
+CF90 = pgf90
+CF77 = pgf90
+
+FFLAGS = -c -r8 -Mpreprocess -O3 -Mcache_align -Mlfs -Mlarge_arrays -mcmodel=medium
+#FFLAGS = -c -r8 -Mpreprocess -mp=gpu -O2 -Mcache_align -Mlfs -mcmodel=medium\
+#         -Minfo=accel -Mstack_arrays -Mlarge_arrays -gpu=ccall\
+#         -gpu=mem:managed,lineinfo,fastmath\
+#         -traceback -Ktrap=fp
+
+F77FLG =
+F90FLG =
+LINKFLAGS =
+CPPARCH =
+CPPMODEL  =
+
+CPPFLAGS = -traditional -P $(CPPARCH) $(CPPMODEL)
+
+BINDIR = $(HOME)/bin
+
+CPP = /usr/bin/cpp
+
+# Rules for running cpp and updating files in $(BUILD) directory
+.H.h:
+	@mkdir -p $(BUILD)
+	@rm -f ./$(BUILD)/$*.h
+	cat MODEL.CPP $*.H | $(CPP) $(CPPFLAGS) > ./$(BUILD)/$*.h
+
+
+.F90.o:
+	@mkdir -p $(BUILD)
+	@rm -f ./$(BUILD)/$*.f90
+	@cat MODEL.CPP $*.F90 | $(CPP) $(CPPFLAGS) > ./$(BUILD)/$*.f90
+	cd $(BUILD) ; $(CF90) $(FFLAGS) $(F90FLG) -o $*.o $*.f90
+
+.F.o:
+	@mkdir -p $(BUILD)
+	@rm -f ./$(BUILD)/$*.f
+	@cat MODEL.CPP $*.F | $(CPP) $(CPPFLAGS) > ./$(BUILD)/$*.f
+	cd $(BUILD) ; $(CF77) $(FFLAGS) $(F77FLG) -o $*.o $*.f
+
+
+
+include source.files
+include target.mk
+
+INCFILES =$(INCSOURCE:.H=.h)
+F90FILES =$(F90SOURCE:.F90=.f90)
+F77FILES =$(F77SOURCE:.F=.f)
+OBJECTS = $(F90SOURCE:.F90=.o) $(F77SOURCE:.F=.o)
+
+
+all: new $(TARGET)
+
+$(TARGET): $(INCFILES) $(OBJECTS)
+	@mkdir -p $(BUILD)
+	cd ./$(BUILD) ;  ar rvs $(TARGET) $(OMOD) $(OBJECTS)
+
+clean:
+	cd $(BUILD) ; rm -rf *.o *.mod *.f90 rii_files lib*.a
+
+new: source depend
+
+source:
+	../bin/mksource.sh > source.files
+
+depend:
+	../bin/mkdepend_linux.pl | sort -u > depends.file
+
+tags: $(F90FILES) $(F77FILES) $(INCFILES)
+	ctags *.F90
+
+include depends.file
